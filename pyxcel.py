@@ -1,3 +1,5 @@
+# !#/usr/bin/python3
+
 from openpyxl import Workbook
 arquivo_excel = Workbook()
 
@@ -22,9 +24,9 @@ valores = [
 for linha in valores:
     planilha1.append(linha)
 
-planilha1.cell(row=3, column=1, value=34.99)
+planilha1.cell(column=1, row=3, value=34.99)
 
-planilha1['C1'] = '=SOMA(23,5)'
+planilha1['C1'] = '=SUM(23,5)'
 
 c1 = planilha1['C1']
 print(c1.value)
@@ -35,7 +37,7 @@ max_linha = planilha1.max_row
 max_coluna = planilha1.max_column
 for i in range(1, max_linha+1):
     for j in range(1, max_coluna+1):
-        print(planilha1.cell(row=i, column=j).value, end=' - ')
+        print(planilha1.cell(row=i, column=j).value,end=' - ')
 
 arquivo_excel.save('relatorio.xlsx')
 
